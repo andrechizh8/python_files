@@ -8,7 +8,7 @@ import csv
 
 # прописываем пути к директориям
 
-path_from = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'file_sourse')
+path_from = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'file_source')
 path_to = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'resources')
 
 # прописываем путь к архиву
