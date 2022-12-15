@@ -37,7 +37,7 @@ def test_read_pdf():
         page = pdfReader.getPage(0)
         text = page.extractText()
         assert 'pytest Documentation' in text, 'Первая страница PDF файла не содержит текст "pytest Documentation"'
-    my_zip.close()
+
     os.remove(file)
 
 
@@ -55,7 +55,7 @@ def test_read_csv():
 
         assert csv_list[0] == 'Anna Pavel Peter', f'Ожидаемый результат : "Anna Pavel Peter"\n' \
                                                   f'Фактический результат: {csv_list[0]}'
-    my_zip.close()
+
     os.remove(file)
 
 
@@ -69,7 +69,7 @@ def test_read_xls():
         last_name = sheet.cell_value(rowx=2, colx=2)
         assert last_name == 'Hashimoto', f'Ожидаемый результат: Hashimoto\n' \
                                          f'Фактический результат: {last_name}'
-    my_zip.close()
+
     os.remove(file)
 
 
@@ -81,7 +81,7 @@ def test_read_txt():
     with open(file) as txt_file:
         lines = txt_file.readlines()
         assert 'abc' in lines
-    my_zip.close()
+
     os.remove(file)
 
 
@@ -92,5 +92,5 @@ def test_check_png_size():
         file = my_zip.extract('selenium_image.png')
     file_size = os.path.getsize(file)
     assert file_size == 23783, 'Размер png файла в архиве не соответствует размеру файла в директории'
-    my_zip.close()
+
     os.remove(file)
