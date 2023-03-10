@@ -6,17 +6,13 @@ import zipfile
 from zipfile import ZipFile
 import csv
 
-# прописываем пути к директориям
-
 path_from = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'file_source')
 path_to = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'resources')
 
-# прописываем путь к архиву
 
 path_to_zip = os.path.join(path_to, 'zip_archive.zip')
 
 
-# добавляем файлы в архив и проверяем их количество
 
 def test_create_zip_archive():
     file_directory = os.listdir(path_from)
@@ -28,7 +24,6 @@ def test_create_zip_archive():
     assert len(file_list) == 5, 'Количество добавленных в архив файлов не соответсвует количеству файлов в директории'
 
 
-# читаем PDF файл из архива и проверяем текст
 
 def test_read_pdf():
     with zipfile.ZipFile(path_to_zip) as my_zip:
@@ -41,7 +36,6 @@ def test_read_pdf():
     os.remove(file)
 
 
-# читаем csv файл из архива и проверяем текст
 
 def test_read_csv():
     with zipfile.ZipFile(path_to_zip) as my_zip:
@@ -59,7 +53,7 @@ def test_read_csv():
     os.remove(file)
 
 
-# читаем xls из архива и проверяем текст
+
 
 def test_read_xls():
     with zipfile.ZipFile(path_to_zip) as my_zip:
@@ -73,7 +67,7 @@ def test_read_xls():
     os.remove(file)
 
 
-# читаем txt из архива и проверяем текст
+
 
 def test_read_txt():
     with zipfile.ZipFile(path_to_zip) as my_zip:
@@ -85,7 +79,7 @@ def test_read_txt():
     os.remove(file)
 
 
-# проверяем размер png файла из архива
+
 
 def test_check_png_size():
     with zipfile.ZipFile(path_to_zip, 'r') as my_zip:
